@@ -198,28 +198,28 @@ const renderNoteList = async (notes) => {
   }
 };
 
-const handleClearAll = () => {
-  fetch('/api/notes/clear-all', {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data.message);
+// const handleClearAll = () => {
+//   fetch('/api/notes/clear-all', {
+//     method: 'DELETE',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//   })
+//     .then((response) => response.json())
+//     .then((data) => {
+//       console.log(data.message);
     
-      getAndRenderNotes();
-    })
-    .catch((error) => {
-      console.error('Error clearing all notes:', error);
-    });
-};
+//       getAndRenderNotes();
+//     })
+//     .catch((error) => {
+//       console.error('Error clearing all notes:', error);
+//     });
+// };
 
-const clearAllBtn = document.querySelector('.clear-all-btn');
-if (clearAllBtn) {
-  clearAllBtn.addEventListener('click', handleClearAll);
-}
+// const clearAllBtn = document.querySelector('.clear-all-btn');
+// if (clearAllBtn) {
+//   clearAllBtn.addEventListener('click', handleClearAll);
+// }
 // Gets notes from the db and renders them to the sidebar
 const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
