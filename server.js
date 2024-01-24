@@ -8,7 +8,7 @@ const getNotes = () =>
   readFile("./db/db.json", "utf8").then((rawNotes) =>
     [].concat(JSON.parse(rawNotes)));   
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const { v4: uuidv4 } = require("uuid");
 
 app.use(express.json());
